@@ -75,6 +75,7 @@ FileHandle open(const std::string & path, const LoginCredentials * credentials)
         // Open path
         return fs->open(localPath);
 #else 
+        (void)credentials;
         return FileHandle{};
 #endif
     }
@@ -108,6 +109,7 @@ std::string sha1(const std::string & str)
     SHA1_Final(hash, &context);
     return hashToString(hash);
 #else
+    (void)str;
     return "";
 #endif
 }
